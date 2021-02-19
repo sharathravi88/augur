@@ -69,7 +69,7 @@ TEMPLATES = [
             ],
         },
     },
-]
+]   
 
 WSGI_APPLICATION = 'augur.wsgi.application'
 
