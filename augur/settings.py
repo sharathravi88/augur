@@ -23,9 +23,9 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 SECRET_KEY = '=%78x%5lp_8*slxw%hp_h*f3@ftqgxmc28aqfaut8y0y1%cbvj'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
-ALLOWED_HOSTS = [*]
+ALLOWED_HOSTS = ['https://auguripl.azurewebsites.net/']
 
 
 # Application definition
