@@ -1,0 +1,10 @@
+{% extends 'iplusers/base.html' %}
+{% block title %}Results Update{% endblock %}
+{% block body %}
+<h1>Update Results here   </h1>
+<form class="" action="" method="post">
+  {% csrf_token %}
+  {{ form_update }}
+  <input type="submit" name="Submit" value="Submit">
+
+{% endblock %}

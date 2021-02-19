@@ -1,0 +1,28 @@
+{% extends 'iplusers/base.html' %}
+{% block title %}Matches{% endblock %}
+{% block body %}
+  <div class="container-fluid">
+    <table class="table table-hover table-dark table-striped table-bordered">
+    <thead class="thead-light">
+      <tr>
+        <th>Match ID</th>
+        <th>Matches</th>
+        <th>Result</th>
+        <th>Location</th>
+
+      </tr>
+    </thead>
+    <tbody>
+      {% for matches in matchlist %}
+      <tr>
+        <td>{{ matches.match_id }}</td>
+        <td>{{ matches.match_name }}</td>
+        <td>{{ matches.result }}</td>
+        <td>{{ matches.location }}</td>
+      </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+
+  </div>
+{% endblock %}

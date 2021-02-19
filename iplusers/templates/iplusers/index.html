@@ -1,0 +1,50 @@
+{% extends 'iplusers/base.html' %}
+{% block title %}Home{% endblock %}
+{% block body %}
+    <br>
+    <div class="jumbotron jumbotron-fluid">
+      <div class="container">
+        <div class="row justify-content-center">
+          <h1 class="letterhead">IPL 2020 - THE AUGUR </h1>
+        </div>
+      </div>
+    </div>
+
+
+  <div class="container">
+    <div class="row">
+      {% if all_matches %}
+
+        {% for match in all_matches %}
+        <div class="col-md-3 col-sm-6">
+          <br>
+          <div class="card text-center" >
+            <div class="card-block">
+              <!-- <img src="{{ match.match_logo.url }}" alt="Card image cap" class="img-fluid"  style="width: 18rem; height: 10em;"> -->
+                <div class="card-body">
+                  <h5 class="card-title">{{ match.match_id }}</h5>
+                  <h5 class="card-title">{{ match.match_name }} </h5>
+
+                  <h6 class="card-subtitle mb-2 text-muted">{{ match.match_time }} </h6>
+                  <h6 class="card-subtitle mb-2 text-muted">{{ match.date }} </h6>
+                  <p class="card-text">{{ match.location }}</p>
+
+                  <a href="{% url 'vote' match.match_id %}" class="card-link">
+                    <button type="button" class="btn btn-info">PLAY</button>
+                  </a>
+                  <a href="{% url 'rules' %}" class="card-link">
+                    <button type="button" class="btn btn-info">RULES</button>
+                  </a>
+
+
+                </div>
+
+            </div>
+          </div>
+
+        </div>
+        {% endfor %}
+        {% endif %}
+
+    </div>
+{% endblock %}

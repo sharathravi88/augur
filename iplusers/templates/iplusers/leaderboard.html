@@ -1,0 +1,30 @@
+{% extends 'iplusers/base.html' %}
+{% block title %}Results Update{% endblock %}
+{% block body %}
+
+<div class="container-fluid">
+  <table class="table table-hover table-dark table-striped table-bordered">
+  <thead class="thead-light">
+    <tr>
+      <th>PLAYER</th>
+      <th>POINTS</th>
+      <th>HIGHEST STAKE</th>
+      <th>PREDICTION ACCURACY</th>
+
+    </tr>
+  </thead>
+  <tbody>
+    {% for a in points %}
+    <tr>
+      <td>{{ a.player }}</td>
+      <td>{{ a.points }}</td>
+      <td>{{ a.highest_stake }}</td>
+      <td>{{ a.pred_acc|floatformat:2 }}%</td>
+    </tr>
+    {% endfor %}
+
+  </tbody>
+</table>
+
+</div>
+{% endblock %}

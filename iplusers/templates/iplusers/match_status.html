@@ -1,0 +1,33 @@
+{% extends 'iplusers/base.html' %}
+{% block title %}Match Status{% endblock %}
+{% block body %}
+<div class="container-fluid">
+  <table class="table table-hover table-dark table-striped table-bordered">
+  <thead class="thead-light">
+    <tr>
+      <th>Match ID</th>
+      <th>Matches</th>
+      <th>Result</th>
+      <th>Location</th>
+      <th>Data</th>
+
+    </tr>
+  </thead>
+  <tbody>
+    {% if cm %}
+      {% for matches in cm %}
+        <tr>
+          <td>{{ matches.match_id }}</td>
+          <td>{{ matches.match_name }}</td>
+          <td>{{ matches.result }}</td>
+          <td>{{ matches.location }}</td>
+          <td><a href="{% url 'current_status' matches.match_id %}"><button type="button" name="button" class="btn btn-primary">View</button></a></td>
+        </tr>
+      {% endfor %}
+    {% endif %}
+  </tbody>
+</table>
+
+
+
+{% endblock %}
