@@ -1,25 +1,31 @@
 {% extends 'iplusers/base.html' %}
 {% block title %}Login{% endblock %}
+{% load crispy_forms_tags %}
+
 
 {% block body %}
-    {% if form.errors %}
-    <p>There is something wrong with what you entered</p>
+<div class="container-fluid">
+  {% if form.errors %}
+  <p>There is something wrong with what you entered</p>
 
-    {% endif %}
+  {% endif %}
 
-    {% if next %}
-    <p>Hey, you can't access that page </p>
-    {% endif %}
+  {% if next %}
+  <p>Please log in using your credentials</p>
+  {% endif %}
 
-    <form action="{% url 'login' %}" method="post">
-      {% csrf_token %}
+  <form action="{% url 'login' %}" method="post">
+    {% csrf_token %}
 
 
-      <p>Username: {{ form.username }}</p>
-      <p>Password: {{ form.password }}</p>
-      <a href="{% url 'register' %}">No account!!! Register here</a>
-      <p><input type="submit" value="login">
-      <input type="hidden" name="next" value="{{ next }}"></p>
+    <p>{{ form | crispy }}</p>
 
-    </form>
+    <a href="{% url 'register' %}">No account!!! Register here</a>
+    <p><input type="submit" value="login">
+    <input type="hidden" name="next" value="{{ next }}"></p>
+
+  </form>
+
+</div>
+
 {% endblock %}

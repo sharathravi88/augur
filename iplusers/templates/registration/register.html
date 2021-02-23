@@ -1,21 +1,21 @@
-<!DOCTYPE html>
-<html lang="en" dir="ltr">
-  <head>
-    <meta charset="utf-8">
-    <title>Register</title>
-  </head>
-  <body>
-    <h1>Registration Page</h1>
-    <form action="{% url 'register' %}" method="post">
-      {% csrf_token %}
-      {% if form.errors %}
-      <p>There are errors in the form </p>
-      {% endif %}
+{% extends 'iplusers/base.html' %}
+{% block title %}Login{% endblock %}
+{% load crispy_forms_tags %}
 
-      {{ form }}
 
-      <input type="submit" name="" value="Register">
-    </form>
+{% block body %}
+<div class="container-fluid">
+  <h1>Registration Page</h1>
+  <form action="{% url 'register' %}" method="post">
+    {% csrf_token %}
+    {% if form.errors %}
+    <p>There are errors in the form </p>
+    {% endif %}
 
-  </body>
-</html>
+    {{ form|crispy }}
+
+    <input type="submit" name="" value="Register">
+  </form>
+</div>
+
+{% endblock %}
